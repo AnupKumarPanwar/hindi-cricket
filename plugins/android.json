@@ -1,0 +1,85 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "com.guinatal.refreshgallery": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-snackbar": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-appavailability": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "com.lampa.startapp": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-admobpro": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.instasaver.photo.instasave.pic"
+        },
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.calculator.add.subtract.multiply.divide"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.calculator.add.subtract.multiply.divide"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.calculator.add.subtract.multiply.divide"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.calculator.add.subtract.multiply.divide"
+        },
+        "cordova-plugin-camera-preview": {
+            "PACKAGE_NAME": "com.thug.life.camera"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        },
+        "cordova-plugin-extension": {
+            "PACKAGE_NAME": "com.ionicframework.ionicanimatemodal245107"
+        }
+    }
+}

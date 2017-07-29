@@ -1,0 +1,389 @@
+R/* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: 'oswaldlight';
+    src: url('fonts/oswald-light-webfont.eot');
+    src: url('fonts/oswald-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald-light-webfont.woff2') format('woff2'),
+         url('fonts/oswald-light-webfont.woff') format('woff'),
+         url('fonts/oswald-light-webfont.ttf') format('truetype'),
+         url('fonts/oswald-light-webfont.svg#oswaldlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'oswaldbold';
+    src: url('fonts/oswald-bold-webfont.eot');
+    src: url('fonts/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald-bold-webfont.woff2') format('woff2'),
+         url('fonts/oswald-bold-webfont.woff') format('woff'),
+         url('fonts/oswald-bold-webfont.ttf') format('truetype'),
+         url('fonts/oswald-bold-webfont.svg#oswaldbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'oswaldregular';
+    src: url('fonts/oswald-regular-webfont.eot');
+    src: url('fonts/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald-regular-webfont.woff2') format('woff2'),
+         url('fonts/oswald-regular-webfont.woff') format('woff'),
+         url('fonts/oswald-regular-webfont.ttf') format('truetype'),
+         url('fonts/oswald-regular-webfont.svg#oswald_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, .ionic-body{
+	background-image: url('../img/main-bg.png');
+	font-family: "oswaldregular";
+    background-repeat: repeat-y;
+    background-size: 100%; 
+    background-position: top center;
+    text-transform: uppercase;
+}
+.about-us.pane{
+    background-image: url('../img/About-bg.png');
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: oswaldbold;
+    color:#fff;
+    margin-bottom: 0;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+/******NAVBAR STYLES*****/
+.bar.bar-balanced{
+    background-color: #89001E;
+    border-bottom:1px solid #fff; 
+}
+.bar-balanced .button{
+	background-color: transparent;
+}
+.bar.bar-balanced .title {
+    color: #fff;
+    /*font-family: oswaldlight;*/
+    font-weight: lighter;
+    font-size: 25px;
+    padding: 2px;
+}
+
+.bar .button.button-icon::before, .bar .button .icon::before, .bar .button.icon::before, .bar .button.icon-left::before, .bar .button.icon-right::before, .bar button.button-icon::before, .bar button .icon::before, .bar button.icon::before, .bar button.icon-left::before, .bar button.icon-right::before{
+    font-size: 28px;
+}
+.bar .button span {
+    font-size: 18px;
+    position: relative;
+    top: 4px;
+    margin-left: 4px;
+}
+.hamburger.ion-navicon::before {
+    font-size: 40px !important;
+}
+/******NAVBAR STYLES END*****/
+
+/******STANDING TABLE STYLES*****/
+.table-for-teams {
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
+    margin: 0 auto;
+    width: 95%;
+    padding-top: 30px;
+}
+.table-for-teams .header {
+    background-color:#FF8A33;
+    padding: 5px 2px;
+}
+.table-for-teams .col-50, .header .col {
+    font-family: oswaldbold;
+}
+.table-for-teams .table-team {
+    margin-top: 12px !important;
+}
+.table-for-teams .table-team {
+    background: #f2f2f2;
+}
+.table-for-teams .first-table-team {
+    margin-top: 0;
+}
+/******STANDING TABLE STYLES*****/
+
+/***RESULT SCREEN DESIGNS***/
+.score-card {
+    background: rgba(249, 249, 249, 0.1) none repeat scroll 0 0;
+    color: #fff;
+    margin: 0 auto;
+    padding-bottom: 0;
+    width: 95%;
+}
+.score-card .status,
+.score-card .overs{
+/*    font-family: oswaldlight;*/
+font-weight: lighter;
+}
+.score-card .status {
+    padding-bottom: 0;
+    padding-top: 45px;
+    text-align: left;
+}
+.score-card .score {
+    font-family: oswaldbold;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 24px 18px;
+    text-align: center;
+    text-shadow: 2px 3px 1px #442517;
+}
+.score-card .overs {
+    padding-bottom: 0;
+    padding-top: 45px;
+    text-align: right;
+}
+.div-vs {
+    text-align: center;
+}
+.div-vs .col > h1 {
+    /*color: #fff;*/
+    margin: 12px 0;
+}
+.result-team-name h4, .result-team-name h2 {
+    color: #fff;
+    text-align: center;
+}
+/***RESULT SCREEN DESIGNS ENDS***/
+
+.menu-screen {
+    margin-left: 4%;
+    text-align: center;
+}
+.menu-screen .col:last-child{
+    border-left: 1px solid #fff;
+}
+.menu-screen .col {
+    margin: 0 3.5%;
+}
+.menu-borders {
+    border-top: 1px solid #fff;
+}
+
+
+/******NEWS & BLOG STYLES*****/
+.likes-comments .ion-android-favorite-outline {
+    color: #9a243e;
+}
+.likes-comments .ion-ios-chatbubble-outline {
+    color: #ff7b6b;
+}
+.social-links p {
+    font-size: 18px;
+}
+.news-blog h2 {
+    color: #89001e;
+    font-family: oswaldregular;
+}
+.new-desc .item-text-wrap {
+    /*font-family: oswaldlight;*/
+    font-weight: lighter;
+    padding: 2% 0;
+    text-align: left;
+}
+.news-blog strong {
+    color: #000;
+}
+/******NEWS & BLOG STYLES END*****/
+
+/***NEXT MATCHES SCREEN STYLES***/
+.count-down {
+    background: #fff none repeat scroll 0 0;
+    margin: 0 1%;
+    padding: 20px;
+    text-align: center;
+    font-weight: lighter;
+    text-transform: none;
+}
+.count-down span {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.next-match-box .row {
+    width: 75%;
+}
+.next-match-box, .next-match-box .row{
+    margin: 0 auto;
+    padding-bottom: 0;
+}
+.next-match-box {
+    background: rgba(195, 184, 180, 0.85);
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.next-match-box .vs-teams .col span, 
+.next-match-box .time-stadium .col span,
+.upcoming-match-box .time-stadium .col span{
+    font-weight: lighter;
+}
+.next-match-box .vs-teams .col, 
+.next-match-box .time-stadium .col {
+    color: #000;
+    text-align: center;
+}
+.next-match-box .time-stadium .col{
+    text-transform: none;
+}
+.next-match-box .vs-teams h4 {
+    color: #000;
+    font-size: 26px;
+    margin-top: 60%;
+}
+.next-match-box .vs-team-names {
+    text-align: center;
+    width: 100%;
+}
+.upcoming-match-box{
+    padding: 5px;
+}
+.upcoming-match-box .row {
+    background: #fff none repeat scroll 0 0;
+    padding: 4%;
+}
+.upcoming-match-box .row .col {
+    text-align: center;
+    padding: 0;
+}
+.upcoming-match-box p {
+    margin-bottom: 0;
+    margin-left: 4%;
+}
+.upcoming-match-box p span {
+    font-size: 20px;
+    margin: 0 5px;
+}
+.upcoming-match-box .time-stadium {
+    background: rgba(186, 180, 179, 0.67);
+    text-transform: none;
+}
+/***NEXT MATCHES SCREEN STYLES END***/
+
+
+/***SHOP SCREEN STYLES***/
+.borderd {
+    border-bottom: 1px solid #B6B6B6;
+    width: 95%;
+    margin: 2% auto;
+}
+.shop-item-box{
+    margin: 4% 0;
+}
+.shop-item-box .col {
+    color: #fff;
+}
+.shop-item-box #item-name {
+    font-size: 20px;
+}
+.shop-item-box #item-desc {
+    font-weight: lighter;
+}
+.purchase-info a {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 24px;
+}
+#price-tag {
+    background: #FF3C39 none repeat scroll 0 0;
+
+}
+#buy-tag {
+    background: #84001D none repeat scroll 0 0;
+    border: 1px solid #B72E2A;
+}
+#mercendise .row + .row {
+    margin-top: 0px;
+}
+/***SHOP SCREEN STYLES END***/
+
+
+/***KNOW YOUR TEAM SCREEN SCREEN STYLES***/
+.team-player-box .player-detail span {
+    background: #EDB240 none repeat scroll 0 0;
+    color: #fff;
+    float: right;
+    padding: 0 8px;
+}
+.team-player-box .player-detail {
+    background: #404951 none repeat scroll 0 0;
+    margin: 0 auto;
+    padding-bottom: 1px;
+    padding-right: 0;
+    padding-top: 1px;
+}
+.box-title {
+    margin: 15px 0;
+}
+.last-box-row {
+    margin-bottom: 15px;
+}
+/***KNOW YOUR TEAM SCREEN SCREEN STYLES END***/
+
+.player-detail-box {
+    background: #1E2025 none repeat scroll 0 0;
+    margin: 0 10px;
+    padding: 15px;
+}
+.player-detail-box .p-info .col, 
+.player-detail-box .t20-scores .col {
+    border-bottom: 1px solid #fff;
+    color:#b1b1b1;
+}
+.player-detail-box .p-info .col .ng-binding, 
+.player-detail-box .t20-scores .col .ng-binding {
+    color: #fff;
+    float: right;
+    font-family: oswaldbold;
+}
+.player-detail, .player-detail .col {
+    padding-bottom: 0;
+}
+.player-detail-box .p-info .main-heading,
+.player-detail-box .t20-scores .main-heading {
+    border-bottom:none;
+    color: #000;
+}
+#p-role{
+    color:#fff;
+    font-weight: bold;
+}
+.main-heading {
+    background: #FFAD54 none repeat scroll 0 0;
+}
+
+.gallery-screen img {
+    width: 100%;
+}
+.upper-case {
+    text-transform: uppercase;
+}
+.about-us-box p {
+    color: #fff;
+    line-height: 1.8;
+    text-align: justify;
+    word-spacing: 2px;
+    text-transform: none;
+}
+.pane, .view {
+    background-image: url('../img/main-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;;
+    background-position: 0px;
+}
+
+.menu-detail {
+    background: rgba(27, 16, 8, 0.9) none repeat scroll 0 0;
+}
+.menu-detail .scroll {
+    padding: 6%;
+}
+
+.twitter-tweet a {
+    color: #000;
+}

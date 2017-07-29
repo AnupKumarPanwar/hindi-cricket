@@ -1,0 +1,178 @@
+
+<ion-view cache-view="false" view-title="HOME">
+  <ion-content>
+ <!--  <div>
+    <div class="row">
+        <div class="col col-33 col-offset-33">
+          <img class="full-image" src="img/islo-logo.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col result-team-name"><h2>WELCOME TO<br /> ISLAMABAD UNITED</h2></div>
+    </div>
+  </div> -->
+
+  <style>
+    .live{
+      /*background: #8cff8c;*/
+      color: red;
+    }
+    .preview{
+      /*background: #ffffb5;*/
+      color: black;
+    }
+    .finished{
+      background: #ffd5d5;
+    }
+  </style>
+
+  <ion-slide-box>
+  <ion-slide ng-repeat="match in liveMatches" ng-click="setMatchId(match.match_id)">
+    
+    <div class="card">
+      <div class="item item-text-wrap">
+      <div style="line-height: 40px; font-size: 16px;">
+        <b style="font-size: 25px;">{{match.series_name}}</b>
+        <br>{{match.header.status}}
+        <br><span ng-class="{live:match.header.state_title == 'Live', preview:match.header.state_title == 'Preview'}"><b>{{match.header.type}}, {{match.header.state_title}}</b> ({{match.header.match_desc}})</span>
+        <br>{{match.venue.name}}, {{match.venue.location}}
+        <br>
+      </div>
+        <div style="width: 50%; float: left; border-right: solid 1px;">
+          <div style="width: 30%; float: left;">
+             <img ng-src="http://synd.cricbuzz.com/j2me/2.0/flags/{{match.team1.flag}}" style="width: 50px; height: 50px;">
+          </div>
+          <div style="width: 70%; float: left; padding: 10px">
+            {{match.team1.name}}<br><br>
+            <span ng-show="{{match.bat_team.innings[0].score}}">{{match.bat_team.innings[0].score}}/{{match.bat_team.innings[0].wkts}} ({{match.bat_team.innings[0].overs}})</span>
+            <span ng-hide="{{match.bat_team.innings[0].score}}">N/A</span>
+          </div>
+        </div>
+
+        <div style="width: 50%; float: left; text-align: right;">
+          <div style="width: 70%; float: left; padding: 10px">
+            {{match.team2.name}}<br><br>
+            <span ng-show="{{match.bow_team.innings[0].score}}">{{match.bow_team.innings[0].score}}/{{match.bow_team.innings[0].wkts}} ({{match.bow_team.innings[0].overs}})</span>
+            <span ng-hide="{{match.bow_team.innings[0].score}}">N/A</span>
+          </div>
+          <div style="width: 30%; float: left;">
+             <img ng-src="http://synd.cricbuzz.com/j2me/2.0/flags/{{match.team2.flag}}" style="width: 50px; height: 50px;">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ion-slide>
+  <!-- <ion-slide>
+    <div class="box yellow"><h1>YELLOW</h1></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box pink"><h1>PINK</h1></div>
+  </ion-slide> -->
+</ion-slide-box>
+
+
+
+<!-- 
+  <div class="card">
+    <div class="item item-text-wrap">
+      <b>India Women's National Cricket Team</b>
+      <br>Women Final Worldcup
+      <br>Live
+      <br>London
+      <br>
+      <div style="width: 50%; float: left; border-right: solid 1px;">
+        <div style="width: 30%; float: left;">
+           <img ng-src="{{flag}}" style="width: 50px; height: 50px;">
+        </div>
+        <div style="width: 70%; float: left; padding: 10px">
+          England Women<br><br>
+          50/1 (12)        
+        </div>
+      </div>
+
+      <div style="width: 50%; float: left; text-align: right;">
+        <div style="width: 70%; float: left; padding: 10px">
+          India Women<br><br>
+          N/A
+        </div>
+        <div style="width: 30%; float: left;">
+           <img ng-src="{{flag}}" style="width: 50px; height: 50px;">
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+
+ <!--  <div class="menu-borders">
+    <div class="row menu-screen">
+      <div class="col col-35">
+        <a nav-transition="android" nav-direction="forward" href="#/results"><img class="full-image" src="img/recent.png">RECENT RESULT</a>
+      </div>
+      <div class="col col-35">
+        <a nav-transition="android" nav-direction="forward" href="#/allresults"><img class="full-image" src="img/result.png">ALL RESULTS</a>
+      </div>
+    </div>
+  </div>  -->
+
+   <!--  <div class="menu-borders">
+    <div class="row menu-screen">
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward"href="#/matches"><img class="full-image" src="img/next-match.png">NEXT MATCH</a>
+        </div>
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/standings"><img class="full-image" src="img/standing.png">STANDINGS</a>
+        </div>
+        
+    </div>
+  </div>  -->
+
+ <!--  <div class="menu-borders">
+    <div class="row menu-screen">
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward"href="#/gallery"><img class="full-image" src="img/gallery.png">GALLERY</a>
+        </div>
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/memegallery"><img class="full-image" src="img/memes-icon.png">MEMES GALLERY</a>
+        </div>
+    </div>
+  </div>
+ -->
+
+
+  <div class="menu-borders">  
+    <div class="row menu-screen">
+        
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/standings"><img class="full-image" src="img/standing.png">STANDINGS</a>
+        </div>
+
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/gallery"><img class="full-image" src="img/video-icon.png">GALLERY</a>
+        </div>
+        
+    </div>
+  </div>  
+
+<!--   <div class="menu-borders">  
+    <div class="row menu-screen">
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/knowyourteam"><img class="full-image" src="img/our-team.png">OUR TEAM</a>
+        </div>
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/news"><img class="full-image" src="img/news-media.png">BLOG</a>
+        </div>
+    </div>
+  </div>  
+  <div class="menu-borders">  
+    <div class="row menu-screen">
+        <div class="col col-35">
+          <a nav-transition="android" nav-direction="forward" href="#/about"><img class="full-image" src="img/aboutus.png">ABOUT US</a>
+        </div>
+        <div class="col col-35">
+        </div>
+    </div>
+  </div>   -->
+
+  </ion-content>  
+</ion-view>

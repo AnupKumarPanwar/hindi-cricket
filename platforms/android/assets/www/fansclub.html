@@ -1,0 +1,108 @@
+<ion-view cache-view="false" view-title="FANS CORNER">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	
+	<style type="text/css">
+		td{
+		  vertical-align: middle;
+		  padding: 5px;
+		}
+	</style>
+
+	<ion-content>
+	 	<div class="list card news-blog">
+	
+		  <div class="item item-avatar" style="background: url('http://i.cricketcb.com/stats/img/{{playerDetails.info.coverImageName}}'); background-size: 100%; background-position: 0px; background-repeat: no-repeat; height: 250px; ">
+		  </div>
+
+		  <div style="width:100vw; z-index: 100; height: 55px;">
+		  	
+		  <div style="width: 100%; background: #56b1d1; padding-left: 38%; color: white; line-height: 30px;">
+		  		<p><b>{{playerDetails.info.name}} ({{playerDetails.info.role}})</b></p>
+		  	</div>
+
+		  		<img ng-src="http://i.cricketcb.com/stats/img/{{playerDetails.info.image}}" style="width: 100%;position: relative;top: -145px;z-index: 100;left: 15px; width: 100px;">
+	
+		  </div>
+		  	    
+
+		  <div class="item item-image">
+		    <!-- <img class="full-image" ng-src="{{p.thumbnail}}"> -->
+
+		   	<div class="row social-links">
+		   		<table style="width: 100%; text-align: left;">
+		   			<tr>
+		   				<td><b>जन्म की तारीख</b></td>
+		   				<td>{{playerDetails.info.DoB}}</td>
+		   			</tr>
+		   			<tr>
+		   				<td><b>जन्म स्थान</b></td>
+		   				<td>{{playerDetails.info.birth_place}}</td>
+		   			</tr>
+		   			<tr>
+		   				<td><b>बल्लेबाज़ी शैली</b></td>
+		   				<td>{{playerDetails.info.style.bat}}</td>
+		   			</tr>
+		   			<tr>
+		   				<td><b>गेंदबाज़ी शैली</b></td>
+		   				<td>{{playerDetails.info.style.bowl}}</td>
+		   			</tr>
+		   			<tr>
+		   				<td style="vertical-align: top"><b>टीमों के लिए खेला</b></td>
+		   				<td><font ng-repeat="team in playerDetails.info.teams">{{team}},<br></font></td>
+		   			</tr>
+		   		</table>
+
+
+	    	</div>
+
+	    	<div class="row social-links">
+	    	<table style="width: 100%; text-align: center;">
+	    		<tr style="background: #333333; color: white">
+	    			<td colspan="3">ICC Ranking</td>
+	    		</tr>
+	    		<tr>
+	    			<td>Test</td>
+	    			<td>ODI</td>
+	    			<td>T20</td>
+	    		</tr>
+	    		<tr style="font-size: 35px;">
+	    			<td>{{playerDetails.rankings.batting.test.current}}</td>
+	    			<td>{{playerDetails.rankings.batting.odi.current}}</td>
+	    			<td>{{playerDetails.rankings.batting.t20.current}}</td>
+	    		</tr>
+	    	</table>
+	    	</div>
+
+
+
+	    	<div class="row social-links">
+	    	<table style="width: 100%; text-align: center;">
+	    		<tr style="background: #333333; color: white">
+	    			<td colspan="4">Career</td>
+	    		</tr>
+	    		<tr style="
+    color: #1295a6;
+    background: #eeeeee;
+">
+	    			<td></td>
+	    			<td>Test</td>
+	    			<td>ODI</td>
+	    			<td>T20</td>
+	    		</tr>
+	    		<tr ng-repeat="score in career">
+	    			<td>{{score.name}}</td>
+	    			<td>{{score.test}}</td>
+	    			<td>{{score.odi}}</td>
+	    			<td>{{score.t20}}</td>
+	    		</tr>
+	    	</table>
+	    	</div>
+
+		  </div>
+		</div>
+	</ion-content>
+</ion-view>

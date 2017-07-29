@@ -1,0 +1,220 @@
+<ion-view cache-view="false" view-title="KNOW YOUR TEAM">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	<!-- <ion-header-bar class="bar-balanced">
+	  	<button class="button" data-ng-click="MenuScreen()">
+  			<i class="icon ion-navicon hamburger"></i>
+	  	</button>
+	  	<h1 class="title">KNOW YOUR TEAM</h1>
+     	<a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    	<i class="icon ion-chevron-left"></i><span>BACK</span>
+	  	</a>
+	</ion-header-bar> -->
+	<ion-content>
+		<div class="row team-player-box box-title">
+			<div class="col"><h3>BATSMAN</h3></div>
+		</div>
+		<div ng-repeat="b in players.groups.Batsman">
+			<div class="row team-player-box" ng-if="$even">
+			  	<div class="col col-50">
+			  		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Batsman[$index].id}}">
+			  			<img class="full-image" ng-src="{{players.groups.Batsman[$index].photo}}">
+			  		</a>
+		  		</div>
+		  		<div class="col col-50" ng-if="$index + 1 < players.groups.Batsman.length">
+		  			<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Batsman[$index + 1].id}}">
+		  				<img class="full-image" ng-src="{{players.groups.Batsman[$index + 1].photo}}" >
+		  			</a>
+		  		</div>
+			</div>
+	    	<div class="row team-player-box" ng-if="$even">
+	          	<div class="col col-50">
+	          		<a href="#/playerdetail/{{players.groups.Batsman[$index].id}}">{{players.groups.Batsman[$index].caption}}</a>
+	       		</div>
+	          	<div class="col col-50" ng-if="$index + 1 < players.groups.Batsman.length">
+	          		<a href="#/playerdetail/{{players.groups.Batsman[$index + 1].id}}" >{{players.groups.Batsman[$index + 1].caption}}</a>
+	       		</div>
+			 	</div>
+			 	<div class="row team-player-box last-box-row" ng-if="$even">
+	          	<div class="col col-45 player-detail">
+	          		<a href="#" id="player-role" ng-repeat="r in players.groups.Batsman[$index].roles">
+	          			{{r}} {{$last ? '' : ($index==players.groups.Batsman[$index].roles.length-2) ? ' & ' : ', '}}
+	          		</a>
+	       			<span id="player-rank">
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	       			</span>
+	       		</div>
+	          	<div class="col col-45 player-detail" ng-if="$index + 1 < players.groups.Batsman.length">
+	          		<a href="#" id="player-role" ng-repeat="r in players.groups.Batsman[$index + 1].roles">
+	          			{{r}} {{$last ? '' : ($index==players.groups.Batsman[$index].roles.length-1) ? ' & ' : ', '}}
+	          		</a>
+	       			<span id="player-rank" ng-if="$index + 1 < players.groups.Batsman.length">
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	       			</span>
+	       		</div>
+			 	</div>
+		 	</div>
+			<div class="row team-player-box box-title">
+				<div class="col"><h3>BOWLERS</h3></div>
+			</div>
+			<div ng-repeat="b in players.groups.Bowler">
+					<div class="row team-player-box" ng-if="$even">
+					  	<div class="col col-50">
+					  		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Bowler[$index].id}}">				  	
+						  		<img class="full-image" ng-src="{{players.groups.Bowler[$index].photo}}">
+						  	</a>
+				  		</div>
+
+				  		<div class="col col-50" ng-if="$index + 1 < players.groups.Bowler.length">
+							<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Bowler[$index + 1].id}}">	
+				  				<img class="full-image" ng-src="{{players.groups.Bowler[$index + 1].photo}}" >
+				  			</a>
+				  		</div>
+					</div>
+			    	<div class="row team-player-box" ng-if="$even">
+		          	<div class="col col-50">
+		          		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Bowler[$index].id}}">
+		          			{{players.groups.Bowler[$index].caption}}
+		          		</a>
+	          		</div>
+		          	<div class="col col-50" ng-if="$index + 1 < players.groups.Bowler.length">
+		          		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Bowler[$index + 1].id}}" >
+		          			{{players.groups.Bowler[$index + 1].caption}}
+		          		</a>
+	          		</div>
+	   		 	</div>
+	   		 	<div class="row team-player-box last-box-row" ng-if="$even">
+		          	<div class="col col-45 player-detail">
+		          		<a href="#" id="player-role" ng-repeat="r in players.groups.Bowler[$index].roles">
+		          			{{r}} {{$last ? '' : ($index==players.groups.Bowler[$index].roles.length-2) ? ' & ' : ', '}}
+		          		</a>
+	          			<span id="player-rank">
+		          			<i class="icon ion-android-star"></i>
+		          			<i class="icon ion-android-star"></i>
+		          			<i class="icon ion-android-star"></i>
+	          			</span>
+	          		</div>`
+		          	<div class="col col-45 player-detail" ng-if="$index + 1 < players.groups.Bowler.length">
+		          		<a href="#" id="player-role" ng-repeat="r in players.groups.Bowler[$index + 1].roles">
+		          			{{r}} {{$last ? '' : ($index==players.groups.Bowler[$index].roles.length-1) ? ' & ' : ', '}}
+		          		</a>
+	          			<span id="player-rank" ng-if="$index + 1 < players.groups.Bowler.length">
+		          			<i class="icon ion-android-star"></i>
+		          			<i class="icon ion-android-star"></i>
+		          			<i class="icon ion-android-star"></i>
+	          			</span>
+	          		</div>
+	   		 	</div>
+		 	</div>
+			<div class="row team-player-box box-title">
+				<div class="col"><h3>ALL ROUNDERS</h3></div>
+			</div>
+			<div ng-repeat="b in players.groups['All-rounder']">
+				<div class="row team-player-box" ng-if="$even">
+				  	<div class="col col-50">
+						<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups['All-rounder'][$index].id}}">			
+				  			<img class="full-image" ng-src="{{players.groups['All-rounder'][$index].photo}}">
+				  		</a>
+			  		</div>
+
+			  		<div class="col col-50" ng-if="$index + 1 < players.groups['All-rounder'].length">
+			  			<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups['All-rounder'][$index + 1].id}}">
+			  				<img class="full-image" ng-src="{{players.groups['All-rounder'][$index + 1].photo}}" >
+			  			</a>
+			  		</div>
+				</div>
+		    	<div class="row team-player-box" ng-if="$even">
+	          	<div class="col col-50">
+	          		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups['All-rounder'][$index].id}}">
+	          			{{players.groups["All-rounder"][$index].caption}}
+	          		</a>
+          		</div>
+	          	<div class="col col-50" ng-if="$index + 1 < players.groups['All-rounder'].length">
+	          		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups['All-rounder'][$index + 1].id}}">
+	          			{{players.groups["All-rounder"][$index + 1].caption}}
+	          		</a>
+          		</div>
+   		 	</div>
+   		 	<div class="row team-player-box last-box-row" ng-if="$even">
+	          	<div class="col col-45 player-detail">
+	          		<a href="#" id="player-role" ng-repeat="r in players.groups['All-rounder'][$index].roles">
+	          			{{r}} {{$last ? '' : ($index==players.groups['All-rounder'][$index].roles.length-2) ? ' & ' : ', '}}
+	          		</a>
+          			<span id="player-rank">
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+          			</span>
+          		</div>
+	          	<div class="col col-45 player-detail" ng-if="$index + 1 < players.groups['All-rounder'].length">
+	          		<a href="#" id="player-role" ng-repeat="r in players.groups['All-rounder'][$index + 1].roles">
+	          			{{r}} {{$last ? '' : ($index==players.groups['All-rounder'][$index].roles.length-1) ? ' & ' : ', '}}
+	          		</a>
+          			<span id="player-rank" ng-if="$index + 1 < players.groups['All-rounder'].length">
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+          			</span>
+          		</div>
+   		 	</div>
+		 	</div>
+		 	<div class="row team-player-box box-title">
+				<div class="col"><h3>WICKET KEEPERS</h3></div>
+			</div>
+			<div ng-repeat="b in players.groups.Wicketkeeper">
+				<div class="row team-player-box" ng-if="$even">
+				  	<div class="col col-50">
+						<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Wicketkeeper[$index].id}}">			
+				  			<img class="full-image" ng-src="{{players.groups.Wicketkeeper[$index].photo}}">
+				  		</a>
+			  		</div>
+			  		<div class="col col-50" ng-if="$index + 1 < players.groups.Wicketkeeper.length">
+			  			<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Wicketkeeper[$index + 1].id}}">
+			  				<img class="full-image" ng-src="{{players.groups.Wicketkeeper[$index + 1].photo}}" >
+			  			</a>
+			  		</div>
+				</div>
+		    	<div class="row team-player-box" ng-if="$even">
+	          	<div class="col col-50">
+	          		<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Wicketkeeper[$index].id}}">
+	          			{{players.groups.Wicketkeeper[$index].caption}}
+	          		</a>
+          		</div>
+	          	<div class="col col-50" ng-if="$index + 1 < players.groups.Wicketkeeper.length">
+	          		<<a nav-transition="android" nav-direction="forward" href="#/playerdetail/{{players.groups.Wicketkeeper[$index + 1].id}}">
+	          			{{players.groups.Wicketkeeper[$index + 1].caption}}
+	          		</a>
+          		</div>
+   		 	</div>
+   		 	<div class="row team-player-box last-box-row" ng-if="$even">
+	          	<div class="col col-45 player-detail">
+	          		<a href="#" id="player-role" ng-repeat="r in players.groups.Wicketkeeper[$index].roles">
+	          			{{r}} {{$last ? '' : ($index==players.groups.Wicketkeeper[$index].roles.length-2) ? ' & ' : ', '}}
+	          		</a>
+          			<span id="player-rank">
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+          			</span>
+          		</div>
+	          	<div class="col col-45 player-detail" ng-if="$index + 1 < players.groups.Wicketkeeper.length">
+	          		<a href="#" id="player-role" ng-repeat="r in players.groups.Wicketkeeper[$index + 1].roles">
+	          			{{r}} {{$last ? '' : ($index==players.groups.Wicketkeeper[$index].roles.length-1) ? ' & ' : ', '}}
+	          		</a>
+          			<span id="player-rank" ng-if="$index + 1 < players.groups.Wicketkeeper.length">
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+	          			<i class="icon ion-android-star"></i>
+          			</span>
+          		</div>
+   		 	</div>
+		 	</div>
+		</ion-content>
+	</ion-view>

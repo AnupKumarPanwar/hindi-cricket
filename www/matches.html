@@ -1,0 +1,83 @@
+<script type="text/javascript">
+// $(document).ready(function() {
+// var mins = document.getElementById("mins");
+// var secs = $("#secs").html();
+// console.log(mins);
+// console.log(secs);
+//});
+
+
+
+
+</script>
+
+<ion-view cache-view="false" view-title="UPCOMING MATCHES">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	<!-- <ion-header-bar class="bar-balanced">
+	  	<button class="button">
+	  		<i class="icon ion-navicon hamburger"></i>
+	  	</button>
+	  	<h1 class="title">NEXT MATCH</h1>
+     	<a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    	<i class="icon ion-chevron-left"></i><span>BACK</span>
+	  	</a>
+	</ion-header-bar> -->
+	<ion-content>
+		<div class="row box-title">
+	  		<div class="col"><h3>NEXT MATCH</h3></div>
+		</div>
+		<div id="clock" class="row screen-wrapper">
+		  	<div class="col count-down"><span id="days">{{matches[0].countdown.days}}</span><br />days</div>
+		  	<div class="col count-down"><span id="hrs">{{matches[0].countdown.hours}}</span><br />hrs</div>
+		  	<div class="col count-down"><span id="mins">{{matches[0].countdown.minuts}}</span><br />mins</div>
+		  	<div class="col count-down"><span id="secs">{{matches[0].countdown.seconds}}</span><br />secs</div>
+		</div>
+		<div class="next-match-box">
+	    	<div class="row vs-teams">
+	          	<div class="col">
+	          		<img class="full-image" ng-src="{{matches[0].teams[0].logo}}">
+          		</div>
+          		<div class="col">
+	          		<h4>- VS -</h4>
+          		</div>
+	          	<div class="col">
+	          		<img class="full-image" ng-src="{{matches[0].teams[1].logo}}">
+          		</div>
+   		 	</div>
+   		 	<div class="row vs-team-names">
+       		 	<div class="col">
+	          		<span>{{matches[0].teams[0].name}}</span>
+          		</div>
+          		<div class="col">
+	          		<span>{{matches[0].teams[1].name}}</span>
+          		</div>
+   		 	</div>
+   		 	<hr style="border: 1px solid #ce002e; color: #d34426;margin:0;"/>
+	 	    <div class="row time-stadium">
+	        	<div class="col">
+	        		<span>{{matches[0].match_info.date}}<br />{{matches[0].match_info.venues[0].name}}</span>
+        		</div>
+	        </div>
+        </div>
+		<div class="row box-title">
+	  		<div class="col"><h3>UPCOMING FIXTURES</h3></div>
+		</div>
+		<div class="upcoming-match-box" ng-repeat="m in matches" ng-if="$index > 0">
+	    	<div class="row">
+	          	<div class="col col-90">
+	          		<p>{{m.teams[0].name}}<span>- VS -</span>{{m.teams[1].name}}</p>
+          		</div>
+   		 	</div>
+   		 	<hr style="border: 1px solid #ce002e; color: #d34426;margin:0;"/>
+	 	    <div class="row time-stadium">
+	        	<div class="col">
+	        		<span>{{m.match_info.date}}<br />{{m.match_info.venues[0].name}}</span>
+        		</div>
+	        </div>
+        </div>
+	</ion-content>
+</ion-view>

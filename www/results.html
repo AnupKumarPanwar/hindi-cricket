@@ -1,0 +1,435 @@
+<ion-view cache-view="false" view-title="SCORE CARD">
+
+<style type="text/css">
+  td{
+    vertical-align: middle;
+    padding: 5px;
+  }
+  .numberCircle {
+    float:left;
+    margin-left: 2px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    
+    background: #fff;
+    border: 2px solid #666;
+    color: black;
+    text-align: center;
+    
+    font: 11px Arial, sans-serif;
+}
+.four
+{
+  background: #246be6;
+}
+.wicket
+{
+  background: #fa0e0e;
+}
+.six
+{
+  background: #14ae08;
+}
+
+
+.slider-pager 
+{
+  position: absolute !important;
+  top: 0px !important;
+}
+
+</style>
+
+
+<ion-nav-buttons side="right">
+  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+    <i class="icon ion-chevron-left"><span>BACK</span></i>
+  </a>
+</ion-nav-buttons>
+
+      <ion-content>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+            <div style="line-height: 40px; font-size: 16px;">
+              <b style="font-size: 25px;">{{match.series_name}}</b>
+              <br>{{match.header.status}}
+              <br><span ng-class="{live:match.header.state_title == 'Live', preview:match.header.state_title == 'Preview'}"><b>{{match.header.type}}, {{match.header.state_title}}</b> ({{match.header.match_desc}})</span>
+              <br>{{match.venue.name}}, {{match.venue.location}}
+              <br>
+            </div>
+              <div style="width: 50%; float: left; border-right: solid 1px;">
+                <div style="width: 30%; float: left;">
+                   <img ng-src="http://synd.cricbuzz.com/j2me/2.0/flags/{{match.team1.flag}}" style="width: 50px; height: 50px;">
+                </div>
+                <div style="width: 70%; float: left; padding: 10px">
+                  {{match.team1.name}}<br><br>
+                  <span ng-if="matchDetails.bat_team.innings[0].score && matchDetails.bat_team.id==match.team1.id">{{matchDetails.bat_team.innings[0].score}}/{{matchDetails.bat_team.innings[0].wkts}} ({{matchDetails.bat_team.innings[0].overs}})</span>
+
+                  <span ng-if="matchDetails.bow_team.innings[0].score && matchDetails.bow_team.id==match.team1.id">{{matchDetails.bow_team.innings[0].score}}/{{matchDetails.bow_team.innings[0].wkts}} ({{matchDetails.bow_team.innings[0].overs}})</span>
+                  
+
+                  <span ng-if="!matchDetails.bat_team.innings[0].score && matchDetails.bat_team.id==match.team1.id"">N/A</span>
+                  <span ng-if="!matchDetails.bow_team.innings[0].score && matchDetails.bow_team.id==match.team1.id"">N/A</span>
+                </div>
+              </div>
+
+              <div style="width: 50%; float: left; text-align: right;">
+                <div style="width: 70%; float: left; padding: 10px">
+                  {{match.team2.name}}<br><br>
+                  <span ng-if="matchDetails.bat_team.innings[0].score && matchDetails.bat_team.id==match.team2.id">{{matchDetails.bat_team.innings[0].score}}/{{matchDetails.bat_team.innings[0].wkts}} ({{matchDetails.bat_team.innings[0].overs}})</span>
+
+                  <span ng-if="matchDetails.bow_team.innings[0].score && matchDetails.bow_team.id==match.team2.id">{{matchDetails.bow_team.innings[0].score}}/{{matchDetails.bow_team.innings[0].wkts}} ({{matchDetails.bow_team.innings[0].overs}})</span>
+                  
+
+                  <span ng-if="!matchDetails.bat_team.innings[0].score && matchDetails.bat_team.id==match.team2.id"">N/A</span>
+                  <span ng-if="!matchDetails.bow_team.innings[0].score && matchDetails.bow_team.id==match.team2.id"">N/A</span>
+                </div>
+                <div style="width: 30%; float: left;">
+                   <img ng-src="http://synd.cricbuzz.com/j2me/2.0/flags/{{match.team2.flag}}" style="width: 50px; height: 50px;">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        
+
+          <ion-slide-box on-slide-changed="scrollTop()" id="detailedInfo">
+
+            
+            <ion-slide>
+              <div class="card">
+                <div class="item item-text-wrap">
+                 
+                
+                <table style="width: 100%" >
+                  <thead>
+                    <td style="color: blue"><b>बल्लेबाज</b></td>
+                    <td></td>
+                    <td>R</td>
+                    <td>B</td>
+                    <td>4s</td>
+                    <td>6s</td>
+                    <td>SR</td>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="batsman in matchDetails.batsman">
+                      <td ng-repeat="player in match.players" ng-if="player.id==batsman.id">
+                        <img ng-src="http://i.cricketcb.com/stats/img/faceImages/{{player.image}}" style="border-radius: 50%; width: 50px; height: 50px;" ng-click="setPlayerId(player.id)">
+                      </td>
+                      <td ng-repeat="player in match.players" ng-if="player.id==batsman.id">
+                        <b>{{player.f_name}}</b>
+                      </td>
+                      <td>
+                        <b>{{batsman.r}}</b>
+                      </td>
+                      <td>
+                        {{batsman.b}}
+                      </td>
+                      <td>
+                        {{batsman["4s"]}}
+                      </td>
+                      <td>
+                        {{batsman["6s"]}}
+                      </td>
+                      <td>
+                        {{(batsman.r*100/batsman.b).toFixed(1)}}
+                      </td>
+                    </tr>
+                    
+
+                  </tbody>
+                </table>
+
+                <div style="margin-top: 10px; text-align: center;">
+                  <span style="color: blue">साझेदारी : </span>
+                  <span>{{matchDetails.prtshp}}</span>
+                </div>
+
+                </div>
+
+
+
+
+
+                <div class="item item-text-wrap">
+                 
+                
+                <table style="width: 100%" >
+                  <thead>
+                    <td style="color: blue"><b>गेंदबाज</b></td>
+                    <td></td>
+                    <td>O</td>
+                    <td>M</td>
+                    <td>R</td>
+                    <td>W</td>
+                    <td>Eco</td>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="bowler in matchDetails.bowler">
+                      <td ng-repeat="player in match.players" ng-if="player.id==bowler.id">
+                        <img ng-src="http://i.cricketcb.com/stats/img/faceImages/{{player.image}}" style="border-radius: 50%; width: 50px; height: 50px;" ng-click="setPlayerId(player.id)">
+                      </td>
+                      <td ng-repeat="player in match.players" ng-if="player.id==bowler.id">
+                        <b>{{player.f_name}}</b>
+                      </td>
+                      <td>
+                        {{bowler.o}}
+                      </td>
+                      <td>
+                        {{bowler.m}}
+                      </td>
+                      <td>
+                        {{bowler.r}}
+                      </td>
+                      <td>
+                        <b>{{bowler.w}}</b>
+                      </td>
+                      <td>
+                        {{(bowler.r/bowler.o).toFixed(1)}}
+                      </td>
+                    </tr>
+
+                    <tr>
+                      
+                    </tr>
+
+                  </tbody>
+                </table>
+
+                <div style="margin-top: 10px; text-align: center;">
+                  <div style="color: blue; width: 30%; float: left; line-height: 40px;">ओवर {{matchDetails.comm_lines[0].o_no}}</div>
+                  <div style="width: 69%; float: left;">
+                      <div ng-repeat="runs in matchDetails.comm_lines[0].o_summary track by $index" class="numberCircle" ng-class="{four : runs=='4', wicket : runs=='W', six : runs=='6'}"><b>{{runs}}</b></div>
+                  </div>
+                </div>
+
+                </div>
+
+
+              </div>
+
+              <div class="card">
+                
+                  <div class="item item-text-wrap">
+                  हाल ही में समाप्त ओवर
+
+                    <div ng-repeat="over in matchDetails.comm_lines.slice(1, matchDetails.comm_lines.length)" style="margin-top: 10px;">
+                      
+                      <div style="width: 30%; float: left; color: blue; padding: 5px; border-right: solid gray 1px;" >
+                          ओवर {{over.o_no}} <br>
+                          {{over.runs}} रन
+                      </div>
+                      <div style="width: 70%; float: left; padding: 5px; margin-bottom: 40px;">
+                          <span ng-repeat="player in match.players" ng-if="player.id==over.bowler[0]">{{player.f_name}}</span> to <span ng-repeat="player in match.players" ng-if="player.id==over.batsman[0]">{{player.f_name}}</span>
+                          <br>
+                          <div ng-repeat="runs in over.o_summary track by $index" class="numberCircle" ng-class="{four : runs=='4', wicket : runs=='W', six : runs=='6'}"><b>{{runs}}</b></div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+
+              </div>
+
+
+
+            </ion-slide>
+
+
+
+
+
+
+            <ion-slide>
+              <div class="card">
+                <div class="item item-text-wrap">
+                  स्कोरकार्ड
+                </div>
+                
+                <div class="=item item-text-wrap">
+                  <table style="width: 100%" >
+                    <thead>
+                      <td style="color: blue"><b>बल्लेबाज</b></td>
+                      <td></td>
+                      <td>R(B)</td>
+                      <td>4s</td>
+                      <td>6s</td>
+                      <td>SR</td>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="batsman in scorecard.Innings[0].batsmen">
+                        <td ng-repeat="player in match.players" ng-if="player.id==batsman.id">
+                          <img ng-src="http://i.cricketcb.com/stats/img/faceImages/{{player.image}}" style="border-radius: 50%; width: 50px; height: 50px;" ng-click="setPlayerId(player.id)">
+                        </td>
+                        <td ng-repeat="player in match.players" ng-if="player.id==batsman.id">
+                          <b>{{player.f_name}}</b><br>
+                          {{batsman.out_desc}}
+                        </td>
+                        <td>
+                          <b>{{batsman.r}}({{batsman.b}})</b>
+                        </td>
+                        <td>
+                          {{batsman["4s"]}}
+                        </td>
+                        <td>
+                          {{batsman["6s"]}}
+                        </td>
+                        <td>
+                          {{(batsman.r*100/batsman.b).toFixed(1)}}
+                        </td>
+                      </tr>
+                      
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="item item-text-wrap">
+                  <b>बल्लेबाजी करने के लिए बाकि : </b> 
+                  <font ng-repeat="remaining in scorecard.Innings[0].next_batsman.split(',')">
+                  <font ng-repeat="player in match.players" ng-if="player.id==remaining"> {{player.f_name}},</font>
+                  </font>
+                </div>
+
+
+                <div class="=item item-text-wrap">
+                  <table style="width: 100%" >
+                    <thead>
+                      <td style="color: blue"><b>गेंदबाज</b></td>
+                      <td></td>
+                      <td>O</td>
+                      <td>M</td>
+                      <td>R</td>
+                      <td>W</td>
+                      <td>Eco</td>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="bowler in scorecard.Innings[0].bowlers">
+                        <td ng-repeat="player in match.players" ng-if="player.id==bowler.id">
+                          <img ng-src="http://i.cricketcb.com/stats/img/faceImages/{{player.image}}" style="border-radius: 50%; width: 50px; height: 50px;" ng-click="setPlayerId(player.id)">
+                        </td>
+                        <td ng-repeat="player in match.players" ng-if="player.id==bowler.id">
+                          <b>{{player.f_name}}</b>
+                        </td>
+                        <td>
+                          <b>{{bowler.o}}</b>
+                        </td>
+                        <td>
+                          {{bowler.m}}
+                        </td>
+                        <td>
+                          {{bowler.r}}
+                        </td>
+                        <td>
+                          {{bowler.w}}
+                        </td>
+                        <td>
+                          {{(bowler.r/bowler.o).toFixed(1)}}
+                        </td>
+                      </tr>
+                      
+
+                    </tbody>
+                  </table>
+                </div>
+
+<!-- 
+                <div style="padding: 10px">
+                  {{match.official.referee.name}}<br>
+                </div> -->
+              </div>
+            </ion-slide>
+
+
+
+
+
+         
+
+            <ion-slide>
+              <div class="card">
+                <div class="item item-text-wrap">
+                  {{match.team1.name}}
+                </div>
+                <ion-scroll style="padding: 10px; overflow-x: scroll; white-space: nowrap;">
+                  <div style="text-align: center; float :left; width: 32%;" ng-repeat="player in match.players" ng-show="{{match.team1.squad.indexOf(s2n(player.id)) !=-1 || match.team1.squad_bench.indexOf(s2n(player.id)) !=-1}}" ng-click="setPlayerId(player.id)">
+                    <img ng-src="http://i.cricketcb.com/stats/img/faceImages/{{player.image}}" style="width: 90%; border-radius: 50%">
+                    <p>{{player.f_name}}</p>
+                  </div>
+                </ion-scroll>
+
+              </div>
+            </ion-slide>
+
+
+            <ion-slide>
+              <div class="card">
+                <div class="item item-text-wrap">
+                  {{match.team2.name}}
+                </div>
+                <ion-scroll style="padding: 10px; overflow-x: scroll; white-space: nowrap;">
+                  <div style="text-align: center; float :left; width: 32%;" ng-repeat="player in match.players" ng-show="{{match.team2.squad.indexOf(s2n(player.id)) !=-1 || match.team2.squad_bench.indexOf(s2n(player.id)) !=-1}}" ng-click="setPlayerId(player.id)">
+                    <img ng-src="http://i.cricketcb.com/stats/img/faceImages/{{player.image}}" style="width: 90%; border-radius: 50%">
+                    <p>{{player.f_name}}</p>
+                  </div>
+                </ion-scroll>
+
+              </div>
+            </ion-slide>
+
+
+
+
+            <ion-slide>
+              <div class="card">
+                <div class="item item-text-wrap">
+                  <b>Series Name : </b>{{match.series_name}}
+                </div>
+                <div class="item item-text-wrap">
+                  <b>टॉस : </b>{{match.header.toss}}
+                </div>
+                <div class="item item-text-wrap">
+                  <b>स्थल : </b>{{match.venue.name}}, {{match.venue.location}}
+                </div>
+                <div class="item item-text-wrap">
+                  Umpires
+                </div>
+                <div style="padding: 10px">
+                  {{match.official.umpire1.name}}<br>
+                  {{match.official.umpire2.name}}<br>
+                  {{match.official.umpire3.name}}<br>
+                </div>
+
+                <div class="item item-text-wrap">
+                  Referee
+                </div>
+                <div style="padding: 10px">
+                  {{match.official.referee.name}}<br>
+                </div>
+              </div>
+            </ion-slide>
+
+
+          </ion-slide-box>
+
+        
+      </ion-content> 
+<!--       <div class="bar bar-footer bar-balanced">
+        <div class="title">Footer</div>
+      </div> -->
+      <ion-footer-bar class="bar-assertive" style="background : rgba(86, 86, 86, 0.45)">
+        <i class="ion-arrow-left-c" style="font-size: 35px; position: absolute;left: 15px"></i>
+        <span style="
+    position: absolute;
+    margin-left: 27%;
+    top: 14px;
+">Swipe Left / Right for More</span>
+        <i class="ion-arrow-right-c" style="font-size: 35px; position: absolute;right: 15px"></i>
+      </ion-footer-bar> 
+</ion-view>

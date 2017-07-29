@@ -1,0 +1,36 @@
+<ion-view cache-view="false" view-title="FAN POST DETAILS">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/fansclub"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	<ion-content>
+	 	<div class="list card news-blog">
+		  <div class="item item-avatar">
+		    <img ng-src="{{fanpost.thumbnail}}">
+	    	<h2>{{fanpost.title.rendered}}</h2> 
+	    	<span>{{fanpost.date | date: 'dd/MM/yy @ hh:mma'}}</span>
+		    <!-- <span ng-bind-html="post.excerpt.rendered"></span> -->
+		  </div>
+		  <div class="item item-image">
+		    <img class="full-image" ng-src="{{fanpost.thumbnail}}">
+		    <div class="item item-text-wrap" ng-bind-html="fanpost.content.rendered"></div>
+		   	<div class="row social-links">
+		    	<div class="col likes-comments">
+			    	<p>
+						<a href="#" class="subdued">
+							<i class="icon ion-ios-chatbubble-outline"> {{fanpost.comments}}</i>
+						</a>
+			    	</p>
+			    </div>
+			    <div class="col social-media">
+				    <p>
+				      <a href="#" class="subdued"><i class="icon ion-social-facebook-outline"></i></a>
+				      <a href="#" class="subdued"><i class="icon ion-social-twitter-outline"></i></a>
+				    </p>
+			    </div>
+	    	</div>
+		  </div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,36 @@
+<ion-view cache-view="false" view-title="VIDEOS">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	<!-- <ion-header-bar class="bar-balanced">
+	  	<button class="button" data-ng-click="MenuScreen()">
+	  		<i class="icon ion-navicon hamburger"></i>
+ 	 	</button>
+ 	 	<h1 class="title">MEME GALLERY</h1>
+     	<a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+       	<i class="icon ion-chevron-left"></i><span>BACK</span>
+     	</a>
+	</ion-header-bar> -->
+	<ion-content>
+		<div ng-repeat="vid in videos track by $index">
+			<div class="row">
+              	<div class="col result-team-name"><h4>{{vid.title}}</h4></div>
+              	
+      		</div>
+
+			<div class="row gallery-screen">
+
+			  	<div class="col">
+			  		<div id="vidlink" ng-click="openInExternalBrowser()"><span style="display:none;">{{vid.video}}</span> 
+			  			<img ng-src="{{vid.image}}" />
+			  		</div>
+		          	<!-- <iframe width="100%" height="270px" ng-src="{{getIframeSrc(vid.video)}}" frameborder="0" allowfullscreen></iframe> -->
+	          	</div>
+
+			</div>
+		<div class="borderd"></div>
+		</div>
+	</ion-content>  
+</ion-view>

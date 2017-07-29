@@ -1,0 +1,106 @@
+<ion-view cache-view="false" view-title="PLAYER DETAILS">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/knowyourteam"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	<!-- <ion-header-bar class="bar-balanced">
+	  	<button class="button" data-ng-click="MenuScreen()">
+	  		<i class="icon ion-navicon hamburger"></i>
+ 	 	</button>
+ 	 	<h1 class="title">PLAYER DETAILS</h1>
+     	<a class="button" nav-transition="android" nav-direction="backward" href="#/knowyourteam"> 
+       	<i class="icon ion-chevron-left"></i><span>BACK</span>
+     	</a>
+	</ion-header-bar> -->
+	<ion-content>
+		<div class="row player-detail">
+		  	<div class="col">
+       		<!-- <span ng-bind-html="m.content.rendered"></span> -->
+       		<img class="full-image" ng-src="{{player.photo}}">
+   		</div>
+		</div>		
+		<div class="player-detail-box">
+		
+			<div class="role">
+				<div class="row">
+				  	<div class="col main-heading">
+		       		<span>ROLE</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>
+	   		<div class="row">
+			  	<div class="col">
+		       		<span id="p-role">{{player.Position}}</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>
+   		</div>
+
+   		<div class="p-info">
+				<div class="row">
+				  	<div class="col main-heading">
+			       		<span>PLAYER INFO</span>
+			       		<!-- <img class="full-image" src="img/misbah.png"> -->
+			   		</div>
+				</div>
+				<div class="row">
+				  	<div class="col">
+			       		Current Team<span>{{player["Current Team"]}}</span>
+			       		<!-- <img class="full-image" src="img/misbah.png"> -->
+			   		</div>
+				</div>
+				<div class="row">
+				  	<div class="col">
+			       		Nationality<span>{{player.Nationality[0].name}}</span>
+			       		<!-- <img class="full-image" src="img/misbah.png"> -->
+			   		</div>
+				</div>				
+				<!-- <div class="row">
+				  	<div class="col">
+		       		<p style="border-bottom:none;"><span><i class="icon ion-android-favorite"></i> 8</span></p>
+		   			</div>
+				</div> -->
+   		</div>
+
+   		<div class="t20-scores">			
+	   		<div class="row">
+				  	<div class="col main-heading">
+		       		<span>T20 TOTAL</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>   		
+	   		<div class="row">
+				  	<div class="col">
+		       		R<span>{{player.career["35"].runs}}</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>   		
+	   		<div class="row">
+				  	<div class="col">
+		       		4S<span>{{player.career["35"].fours}}</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>   		
+	   		<div class="row">
+				  	<div class="col">
+		       		6S<span>{{player.career["35"].sixs}}</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>	   		
+	   		<div class="row">
+				  	<div class="col">
+		       		MAT<span>{{player.career["35"].mat}}</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>	   		
+	   		<div class="row">
+				  	<div class="col">
+		       		SR<span>{{player.career["35"].sr}}</span>
+		       		<!-- <img class="full-image" src="img/misbah.png"> -->
+		   		</div>
+	   		</div>
+   		</div>
+		</div>
+	</ion-content>
+</ion-view>

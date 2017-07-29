@@ -1,0 +1,60 @@
+<ion-view cache-view="false" view-title="ALL RESULTS">
+
+<ion-nav-buttons side="right">
+  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+    <i class="icon ion-chevron-left"><span>BACK</span></i>
+  </a>
+</ion-nav-buttons>
+
+      <ion-content>
+
+      <div ng-repeat="m in matches">
+
+          <div class="row">
+              <div class="col col-33 col-offset-33">
+                <img class="full-image" ng-src="{{m.teams[0].logo}}">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col result-team-name"><h4>{{m.teams[0].name}}</h4></div>
+          </div>
+          <div class="row score-card">
+              <div class="col col-25 status">{{m.teams[0].results.outcome[0]}}</div> 
+              <div class="col col-50 score">{{m.teams[0].results.runs}}/{{m.teams[0].results.wicketslost}}</div>
+              <div class="col col-25 overs">Overs: {{m.teams[0].results.overs}}</div>
+
+            </div>
+            <div class="row div-vs">
+              <div class="col">
+                <h1>VS</h1>
+              </div>
+            </div>
+
+            <div class="row score-card">
+              <div class="col col-25 status">{{m.teams[1].results.outcome[0]}}</div> 
+              <div class="col col-50 score">{{m.teams[1].results.runs}}/{{m.teams[1].results.wicketslost}}</div>
+              <div class="col col-25 overs">Overs: {{m.teams[1].results.overs}}</div>
+
+            </div>
+
+        <div class="row">
+            <div class="col result-team-name"><h4>{{m.teams[1].name}} </h4></div>
+        </div>
+
+          <div class="row">
+              <!-- <div class="col">.col</div> -->
+              <div class="col col-33 col-offset-33">
+                <img class="full-image" ng-src="{{m.teams[1].logo}}">
+              </div>
+          </div>
+
+          <div class="row" style="color:#fff;">
+            <div class="col col-offset-75">{{m.match_info.date}}</div>
+          </div>
+
+          <div class="borderd"></div>
+
+      </div>
+
+      </ion-content>  
+</ion-view>

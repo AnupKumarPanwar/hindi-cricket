@@ -1,0 +1,34 @@
+<ion-view cache-view="false" view-title="BLOG">
+	<ion-nav-buttons side="right">
+	  <a class="button" nav-transition="android" nav-direction="backward" href="#/"> 
+	    <i class="icon ion-chevron-left"><span>BACK</span></i>
+	  </a>
+	</ion-nav-buttons>
+	<ion-content>
+	 	<div class="list card news-blog" data-ng-repeat="p in posts track by $index" ng-if="p">
+		  <a nav-transition="android" nav-direction="forward" href="#/postdetail/{{p.id}}"><div class="item item-avatar">
+		    <img ng-src="{{p.thumbnail}}">
+	    	<h2>{{p.title.rendered}}</h2> <span>{{p.date | date: 'dd/MM/yy @ hh:mma'}}</span>
+		    <span ng-bind-html="p.excerpt.rendered"></span>
+		  </div></a>
+		  <div class="item item-image">
+		    <!-- <img class="full-image" ng-src="{{p.thumbnail}}"> -->
+
+		   	<div class="row social-links">
+		    	<div class="col likes-comments">
+			    	<p>
+						<a href="#" class="subdued">
+							<i class="icon ion-ios-chatbubble-outline"> {{p.comments}}</i>
+						</a>
+			    	</p>
+			    </div>
+			    <div class="col social-media">
+				    <p>
+				      <a href="#" class="subdued"><i class="icon ion-social-facebook-outline"></i></a>
+				      <a href="#" class="subdued"><i class="icon ion-social-twitter-outline"></i></a>
+				    </p>
+			    </div>
+	    	</div>
+		  </div>
+		</div>
+	</ion-content>
